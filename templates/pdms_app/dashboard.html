@@ -1,0 +1,35 @@
+Author: Simon Gawar Dak
+Date: 2026-25-02
+
+{% extends "base.html" %}
+
+{% block title %}User Dashboard{% endblock %}
+
+{% block content %}
+  <!-- User info -->
+  <h2>{{ user.get_full_name }}'s Dashboard</h2>
+  <p><strong>Email:</strong> {{ user.email }}</p>
+  <p><strong>Role:</strong> {{ profile.role }}</p>
+  <p><strong>Contact:</strong> {{ profile.contact_number }}</p>
+
+  <!-- Teams -->
+  <h3>Teams</h3>
+  <ul>
+    {% for team in profile.teams.all %}
+      <li>{{ team.name }} - {{ team.description }}</li>
+    {% empty %}
+      <li>No teams assigned</li>
+    {% endfor %}
+  </ul>
+
+  <!-- Assigned tasks -->
+  <h3>Assigned Tasks</h3>
+  <ul>
+    {% for task in tasks %}
+      <!-- Link to task detail using {% url %} -->
+      <li><a href="{% url 'task_detail' task.id %}">{{ task.title }}</a></li>
+    {% empty %}
+      <li>No tasks assigned</li>
+    {% endfor %}
+  </ul>
+{% endblock %}

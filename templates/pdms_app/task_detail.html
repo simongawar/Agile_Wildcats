@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title %}Task Details{% endblock %}
+
+{% block content %}
+  <!-- Task info -->
+  <h2>{{ task.title }}</h2>
+  <p>{{ task.description }}</p>
+
+  <!-- Attached files -->
+  <h3>Attached Files</h3>
+  <ul>
+    {% for file in task.files.all %}
+      <li><a href="{{ file.file.url }}" download>{{ file.file.name }}</a></li>
+    {% empty %}
+      <li>No files attached</li>
+    {% endfor %}
+  </ul>
+
+  <!-- Upload form -->
+  <h3>Upload a File</h3>
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <label for="file">Choose a file to upload:</label>
+    <input type="file" id="file" name="file" title="Upload a file" required>
+    <button type="submit">Upload</button>
+  </form>
+{% endblock %}

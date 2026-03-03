@@ -1,0 +1,23 @@
+# Author: Simon Gawar Dak
+# Date: 2026-25-02
+
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+  <!-- Welcome message -->
+  <h2>Welcome to the Product Development Management System (PDMS)</h2>
+  <p>This system helps manage tasks, teams, and documents efficiently.</p>
+
+  <!-- Quick navigation links -->
+  <h3>Quick Links</h3>
+  <ul>
+    <!-- Link to downloads page -->
+    <li><a href="{% url 'download_page' %}">Downloads</a></li>
+    <!-- Link to about page -->
+    <li><a href="{% url 'about' %}">About PDMS</a></li>
+    <!-- Link to admin panel -->
+    <li><a href="/admin/">Admin Panel</a></li>
+  </ul>
+{% endblock %}

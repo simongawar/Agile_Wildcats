@@ -1,0 +1,59 @@
+# Author: Simon Gawar Dak
+# Date: 2026-25-02
+
+{% extends "base.html" %}
+
+{% block title %}Downloads{% endblock %}
+
+{% block content %}
+  <!-- Page heading -->
+  <h2>Download Reports</h2>
+  <p>Export tasks into different formats for sharing and documentation.</p>
+
+  <!-- Download buttons -->
+  <ul>
+    <!-- CSV export -->
+    <li><a href="{% url 'export_csv' %}">Download Tasks as CSV</a></li>
+    <!-- PDF export -->
+    <li><a href="{% url 'export_pdf' %}">Download Tasks as PDF</a></li>
+    <!-- DOCX export -->
+    <li><a href="{% url 'export_docx' %}">Download Tasks as DOCX</a></li>
+  </ul>
+
+  <!-- Upload section -->
+  <h3>Upload Tasks via CSV</h3>
+  <form method="post" enctype="multipart/form-data" action="{% url 'upload_csv' %}">
+    {% csrf_token %}
+    <label for="file-upload">Choose a CSV file to upload:</label>
+    <input type="file" id="file-upload" name="file" title="Upload a CSV file containing tasks" required>
+    <button type="submit">Upload</button>
+  </form>
+{% endblock %}
+{% extends "base.html" %}
+
+{% block title %}Downloads{% endblock %}
+
+{% block content %}
+  <!-- Page heading -->
+  <h2>Download Reports</h2>
+  <p>Export tasks into different formats for sharing and documentation.</p>
+
+  <!-- Download buttons -->
+  <ul>
+    <!-- CSV export -->
+    <li><a href="{% url 'export_csv' %}">Download Tasks as CSV</a></li>
+    <!-- PDF export -->
+    <li><a href="{% url 'export_pdf' %}">Download Tasks as PDF</a></li>
+    <!-- DOCX export -->
+    <li><a href="{% url 'export_docx' %}">Download Tasks as DOCX</a></li>
+  </ul>
+
+  <!-- Upload section -->
+  <h3>Upload Tasks via CSV</h3>
+  <form method="post" enctype="multipart/form-data" action="{% url 'upload_csv' %}">
+    {% csrf_token %}
+    <label for="file-upload">Choose a file to upload:</label>
+    <input type="file" id="file-upload" name="file" title="Upload a file" placeholder="Select a file" required>
+    <button type="submit">Upload</button>
+  </form>
+{% endblock %}
