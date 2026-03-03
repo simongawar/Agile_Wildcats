@@ -1,0 +1,25 @@
+# Example .gitignore for Django + SQLite:
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Django
+db.sqlite3
+/static/
+media/
+
+# Migrations
+*/migrations/__pycache__/
+*/migrations/*.py
+
+# Virtual environment
+venv/
+env/
+
+# IDE / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
