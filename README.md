@@ -86,8 +86,6 @@ python manage.py runserver
  If you try `/about/` directly, you’ll get a 404 because all app routes are prefixed with `/pdms/`.
 
 ---
-
-```
 project_root/
 │   manage.py
 │   requirements.txt
@@ -114,7 +112,6 @@ project_root/
 │           └── task_detail.html
 └── templates/
     └── base.html        # Global layout
-```
 
 ---
 
