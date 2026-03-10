@@ -1,5 +1,4 @@
-version: "3.9"
-
+# Docker Compose configuration for PDMS
 services:
   web:
     build: .

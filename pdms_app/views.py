@@ -55,7 +55,7 @@ def upload_csv(request):
     if request.FILES.get("file"):
         uploaded_file = request.FILES["file"]
 
-        # ✅ Process file directly without saving to DB
+        # Process file directly without saving to DB
         decoded_file = uploaded_file.read().decode("utf-8").splitlines()
         import csv
         reader = csv.DictReader(decoded_file)
